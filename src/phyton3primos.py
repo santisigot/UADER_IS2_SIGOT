@@ -11,6 +11,5 @@ for num in range(lower, upper + 1):
                break
        else:
            print(num)
-
-#el mas grande sigue siendo river plate
            
+#el mas grande sigue siendo river plate
