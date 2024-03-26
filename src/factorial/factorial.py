@@ -1,10 +1,3 @@
-#!/usr/bin/python
-#*-------------------------------------------------------------------------*
-#* factorial.py                                                            *
-#* calcula el factorial de un número                                       *
-#* Dr.P.E.Colla (c) 2022                                                   *
-#* Creative commons                                                        *
-#*-------------------------------------------------------------------------*
 import sys
 
 def factorial(num): 
@@ -21,12 +14,22 @@ def factorial(num):
         return fact 
 
 def calcular_factoriales(rango):
-    inicio, fin = map(int, rango.split('-'))
+    if '-' in rango:
+        inicio, fin = map(int, rango.split('-'))
+    else:
+        inicio = 1
+        fin = int(rango)
+
+    if inicio < 1:
+        inicio = 1
+    if fin > 60:
+        fin = 60
+
     for num in range(inicio, fin + 1):
         print("El factorial de", num, "! es", factorial(num))
 
 if len(sys.argv) < 2:
-    rango = input("Por favor, ingresa un rango en el formato 'desde-hasta' para calcular los factoriales: ")
+    rango = input("Por favor, ingresa un rango en el formato 'desde-hasta' o '-hasta' o 'desde-' para calcular los factoriales: ")
 else:
     rango = sys.argv[1]
 
